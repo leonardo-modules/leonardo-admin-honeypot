@@ -23,7 +23,7 @@ class AdminHoneypot(generic.FormView):
         # Django 1.7 redirects the user to an explicit login view with
         # a next parameter, so emulate that if needed.
         if django.VERSION >= (1, 7):
-            login_url = reverse('login')
+            login_url = reverse('login_honeypot')
             if request.path != login_url:
                 from django.contrib.auth.views import redirect_to_login
                 return redirect_to_login(request.get_full_path(), login_url)
