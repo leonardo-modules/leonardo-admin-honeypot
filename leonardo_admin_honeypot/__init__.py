@@ -15,8 +15,9 @@ LEONARDO_PUBLIC = True
 
 
 LEONARDO_PLUGINS = [
-        ('leonardo_admin_honeypot.apps.admin_honeypot', 'Admin Honeypot'),
+    ('leonardo_admin_honeypot.apps.admin_honeypot', 'Admin Honeypot'),
 ]
+
 
 class Config(AppConfig):
     name = 'leonardo_admin_honeypot'

@@ -4,7 +4,6 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 from django.utils.translation import ugettext as _
 from django.views import generic
-from django.shortcuts import redirect
 from .forms import HoneypotLoginForm
 from .signals import honeypot
 from .models import LoginAttempt
@@ -53,5 +52,6 @@ class AdminHoneypot(generic.FormView):
             user_agent=self.request.META.get('HTTP_USER_AGENT'),
             path=self.request.get_full_path(),
         )
-        honeypot.send(sender=LoginAttempt, instance=instance, request=self.request)
+        honeypot.send(sender=LoginAttempt, instance=instance,
+                      request=self.request)
         return super(AdminHoneypot, self).form_invalid(form)

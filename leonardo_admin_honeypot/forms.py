@@ -8,6 +8,7 @@ except ImportError:
 
 
 class HoneypotLoginForm(AdminAuthenticationForm):
+
     def clean(self):
         """
         Always raise the default error message, because we don't
